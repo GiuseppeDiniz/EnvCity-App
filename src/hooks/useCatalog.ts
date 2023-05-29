@@ -1,22 +1,20 @@
 import { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 
-import {baseUrl, HEADERS} from '../config/index.json';
+import { baseUrl, HEADERS } from '../config/index.json';
 
-const useCatalog = () => {
+const useCatalog = (refresh: boolean) => {
   const [data, setData] = useState<Catalog | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    setLoading(true);
     const fetchCatalog = async () => {
       try {
-        const response: AxiosResponse<Catalog> = await axios.get(
-          `${baseUrl}`,
-          {
-            headers: HEADERS
-          }
-        );
+        const response: AxiosResponse<Catalog> = await axios.get(`${baseUrl}/catalog`, {
+          headers: HEADERS
+        });
         setData(response.data);
         setLoading(false);
       } catch (error) {
@@ -26,7 +24,7 @@ const useCatalog = () => {
     };
 
     fetchCatalog();
-  }, []);
+  }, [refresh]);  
 
   return { data, loading, error };
 };

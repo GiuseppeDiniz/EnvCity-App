@@ -21,7 +21,7 @@ const TopBar: React.FC = ({}) => {
             paddingRight: 10
           }}
         >
-          <SearchBar/>
+          <SearchBar />
         </View>
       </View>
     </SafeAreaView>

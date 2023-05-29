@@ -20,7 +20,16 @@ const BottomTabNavigator: React.FC = () => {
           )
         }}
       />
-      <BottomTab.Screen name="About" component={AboutScreen} />
+      <BottomTab.Screen 
+        name="About"
+        options={{
+          title: 'About',
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name='info-circle' color={color} />
+          )
+        }}
+        component={AboutScreen} />
     </BottomTab.Navigator>
   );
 };
