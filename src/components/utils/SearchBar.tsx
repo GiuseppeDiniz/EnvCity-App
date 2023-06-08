@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import GooglePlacesInput from '../utils/GooglePlaceInput';
 
@@ -22,3 +22,5 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
+const style = StyleSheet.create({});

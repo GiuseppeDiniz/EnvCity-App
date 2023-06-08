@@ -1,8 +1,13 @@
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import SearchBar from './utils/SearchBar';
 
-const TopBar: React.FC = ({}) => {
+interface TopBarProps {
+  screen: "Home" | "About";
+}
+
+
+const TopBar: React.FC<TopBarProps> = ({screen}) => {
   return (
     <SafeAreaView>
       <View style={styles.containerTop}>
@@ -13,6 +18,15 @@ const TopBar: React.FC = ({}) => {
           />
         </View>
 
+        {screen!="Home"  ?
+          <View style={styles.topMid}>
+            <View style={styles.separator} />
+            <Text style={styles.titleSeparator}>{screen}</Text>
+          </View>
+        :
+          null
+        }
+
         <View
           style={{
             flex: 1,
@@ -21,7 +35,7 @@ const TopBar: React.FC = ({}) => {
             paddingRight: 10
           }}
         >
-          <SearchBar />
+          {screen==="Home"? <SearchBar /> : null}
         </View>
       </View>
     </SafeAreaView>
@@ -49,7 +63,23 @@ const styles = StyleSheet.create({
   TopRigth: {
     justifyContent: 'center',
     marginLeft: 'auto'
-  }
+  },
+  separator: {
+    alignSelf: "center",
+    marginLeft: 20,
+    height: '50%',
+    width: 2,
+    backgroundColor: "#ccc", // Cor do separador
+    marginHorizontal: 8,
+  },
+  titleSeparator:{
+    alignSelf: "center",
+    marginLeft: 10,
+    color: "#ccc",
+  },
+  topMid:{
+    flexDirection: 'row',
+  },
 });
 
 export default TopBar;

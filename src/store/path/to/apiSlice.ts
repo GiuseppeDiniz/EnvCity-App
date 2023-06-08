@@ -8,7 +8,7 @@ const useApi = createApi({
     headers: HEADERS
   }),
   endpoints: (builder) => ({
-    getCatalog: builder.query<Catalog, void>({ 
+    getCatalog: builder.query<Catalog, void>({
       query: () => {
         console.log('Realizando consulta ao catálogo...');
         return `/catalog/${provider}`;

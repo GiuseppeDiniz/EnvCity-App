@@ -7,7 +7,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     <React.Fragment>
       <RenderMap navigation={navigation} />
       <SafeAreaView style={{ backgroundColor: '#00213b' }}>
-        <TopBar />
+        <TopBar screen={"Home"}/>
       </SafeAreaView>
       <FabButton style={{ bottom: 70, left: 40 }} />
     </React.Fragment>

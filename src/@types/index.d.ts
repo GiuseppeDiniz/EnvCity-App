@@ -111,7 +111,15 @@ interface CheckboxState {
   };
 }
 
+interface RootState {
+  refresh: {
+    isUpdating: boolean;
+  };
+}
+
 //----------------------------------------------------------------
+
+
 
 /*
 RootStackParamList

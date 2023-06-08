@@ -12,9 +12,12 @@ const useCatalog = (refresh: boolean) => {
     setLoading(true);
     const fetchCatalog = async () => {
       try {
-        const response: AxiosResponse<Catalog> = await axios.get(`${baseUrl}/catalog`, {
-          headers: HEADERS
-        });
+        const response: AxiosResponse<Catalog> = await axios.get(
+          `${baseUrl}/catalog`,
+          {
+            headers: HEADERS
+          }
+        );
         setData(response.data);
         setLoading(false);
       } catch (error) {
@@ -24,7 +27,7 @@ const useCatalog = (refresh: boolean) => {
     };
 
     fetchCatalog();
-  }, [refresh]);  
+  }, [refresh]);
 
   return { data, loading, error };
 };

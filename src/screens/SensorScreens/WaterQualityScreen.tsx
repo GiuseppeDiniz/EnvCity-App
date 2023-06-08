@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import useApi from '../../store/path/to/apiSlice';
 
 const WaterQualityScreen: React.FC<WaterQualityScreenProps> = ({ route }) => {
-  const { sensorName } = route.params;
+  //const { sensorName } = route.params;
   const {
     data: sensorData,
     error: sensorError,

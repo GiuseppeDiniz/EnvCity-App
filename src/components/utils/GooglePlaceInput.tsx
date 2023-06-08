@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     marginLeft: 15,
-    marginTop: 5
+    marginTop: 5,
+    
   },
   list: {
     width: 200,

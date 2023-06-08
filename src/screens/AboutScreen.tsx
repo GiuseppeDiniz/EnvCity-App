@@ -22,23 +22,25 @@ const AboutScreen: React.FC<AboutScreenProps> = ({ navigation }) => {
   return (
     <React.Fragment>
       <SafeAreaView style={{ backgroundColor: '#00213b' }}>
-        <TopBar />
-        {!error && !loading?
+        <TopBar screen={"About"}/>
+        {!error && !loading ? (
           <View style={{}}>
             <Button title="Refresh" onPress={handleRefresh} />
-            <Text style={{color:'#FFF'}}>Data: {data.providers[0].sensors[0].publicAccess?"true":"false"}</Text>
+            <Text style={{ color: '#FFF' }}>
+              Data:{' '}
+              {data.providers[0].sensors[0].publicAccess ? 'true' : 'false'}
+            </Text>
           </View>
-        :
-        loading?
+        ) : loading ? (
           <React.Fragment>
-            <ActivityIndicator color="blue" size="large"/>
+            <ActivityIndicator color="blue" size="large" />
             <View style={styles.loadingContainer}>
               <Text style={styles.loadingText}>Carregando...</Text>
             </View>
-          </React.Fragment>          
-        :
+          </React.Fragment>
+        ) : (
           <Text>{error}</Text>
-        }
+        )}
       </SafeAreaView>
     </React.Fragment>
   );
@@ -50,16 +52,16 @@ const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     position: 'absolute',
-    top: "80%",
+    top: '80%',
     left: 0,
     right: 0,
     bottom: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   loadingText: {
     color: '#fff',
-    fontSize: 20,
-  },
+    fontSize: 20
+  }
 });
